@@ -44,6 +44,13 @@ class BroadcastReceiver: android.content.BroadcastReceiver() {
                     )
                 )
             }
+
+            context?.sendBroadcast(
+                Intent().apply {
+                    putExtra(MainActivity.EXTRA_KEY_MESSAGE, text)
+                    action = MainActivity.ACTION_RECEIVE_MESSAGE
+                }
+            )
         }
     }
 
